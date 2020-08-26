@@ -1,11 +1,6 @@
 // Normalize Styles
 @import 'node_modules/normalize.css/normalize';
 
-// Import Modules
-@import '../_modules/link/link';
-
-// Box sizing partial styles:
-// Apply a natural box layout model to all elements
 *,
 *:before,
 *:after {
@@ -14,30 +9,184 @@
   box-sizing: border-box;
 }
 
-.yeogurt-info {
-  text-align: center;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+html {
+  font-size: 18px;
+}
+body {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  font-size: 18px;
 }
 
-.version {
-  font-size: 14px;
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+.sr-only {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  border: 0;
 }
 
-.logo {
-  margin-top: 15px;
+header {
+  height: 100vh;
+  min-height: 25rem;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 6rem;
+  h1 {
+    font-size: 14rem;
+    font-weight: 300;
+    margin: 0;
+    line-height: 1;
+  }
+  p {
+    font-size: 1.25em;
+  }
+  .details {
+    display: flex;
+    margin: 0 -1rem;
+    dl {
+      padding: 0 1rem;
+      line-height: 1.5;
+    }
+    dt::before {
+      content: '– ';
+    }
+    dd {
+      margin: 0;
+      font-weight: 500;
+    }
+  }
 }
 
-// Styling on warning for users on IE7 or below
-.browsehappy {
-  text-align: center;
-  margin: 0;
-  background: #fff8e2;
-  color: #000;
-  padding: 0.5em 0;
+section {
+  background-color: #000;
+  color: white;
+  padding: 3rem 6rem;
+  h2 {
+    margin: 1.5rem 0 1rem;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.5;
+    b {
+      display: block;
+      font-weight: 500;
+    }
+  }
+  .projects-list {
+    display: flex;
+    max-width: 64rem;
+    margin: 0 -1rem 4rem;
+  }
+  .item {
+    width: 30rem;
+    padding: 1rem;
+  }
+  article {
+    position: relative;
+    overflow: hidden;
+    img {
+      max-width: 100%;
+      transition: .2s all linear;
+    }
+    .details {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 3rem 2.5rem;
+      background-color: transparent;
+      transition: .2s background-color;
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      dl {
+        margin: 0;
+        dt,
+        dd {
+          margin: 0;
+          opacity: 0;
+          transition: none;
+        }
+        dt {
+          margin-top: .66rem;
+          &:not(.sr-only) {
+            &::before {
+              content: '– ';
+            }
+          }
+        }
+        dd {
+          font-weight: 400;
+        }
+        .description {
+          font-size: 2rem;
+          font-weight: 300;
+          line-height: 1.25;
+          margin-bottom: .75rem;
+        }
+        .techs {
+          display: flex;
+          margin-top: .33rem;
+          span {
+            display: inline-block;
+            background-color: white;
+            color: black;
+            font-size: .85rem;
+            padding: .35rem .5rem;
+            margin-right: .5rem;
+          }
+        }
+      }
+    }
+    &:hover {
+      img {
+        filter: blur(4px);
+      }
+      .details {
+        background-color: rgba(0,0,0,.8);
+        dl {
+          dt,
+          dd {
+            opacity: 1;
+            transition: .1s opacity .1s;
+          }
+        }
+      }
+    }
+    a {
+      color: inherit;
+    }
+  }
+}
+
+footer {
+  padding: 1rem 6rem;
+  h3 {
+    margin: 0 0 1rem;
+    font-size: 2.5rem;
+    font-weight: 500;
+  }
+  p {
+    margin: 0;
+    line-height: 1.5;
+    &::before {
+      content: '– ';
+    }
+  }
+  a {
+    text-decoration: none;
+    font-weight: 500;
+    transition: .2s color;
+    color: inherit;
+    line-height: 1.5;
+  }
 }
