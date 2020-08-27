@@ -18,7 +18,7 @@
   <div></div>
   <div>
     <h1>Hello!</h1>
-    <p>I'm <b>Jordi</b>, and I'm a <b>Front-end</b> web developer from <b>Barcelona</b>.</p>
+    <p>I'm <b>Jordi</b> and I'm a <b>Front-end</b> web developer from <b>Barcelona</b>.</p>
   </div>
   <div class="details">
     <dl>
@@ -53,13 +53,13 @@
           <div class="details">
             <dl>
               <dt class="sr-only">What</dt>
-              <dd class="description">{{project.description}}.</dd>
+              <dd class="description">{{project.description}}</dd>
             </dl>
             <dl>
               <dt>For whom</dt>
               <dd>{{project.client}}</dd>
               <dt>Where</dt>
-              <dd>{{project.city}}{% if project.worked_at %}, at {{project.worked_at}}{% endif %}.</dd>
+              <dd>{{project.city}}{% if project.worked_at %}, at <a href="{{project.worked_at.url}}" target="_blank">{{project.worked_at.name}}</a>.{% endif %}</dd>
               <dt>When</dt>
               <dd>{{project.year}}</dd>
               <dt>How</dt>
@@ -70,7 +70,7 @@
               </dd>
               {% if project.website %}
                 <dt>Website</dt>
-                <dd><a href="{{project.website}}" target="_blank">{{project.website}}</a></dd>
+                <dd><a href="{{project.website.url}}" target="_blank">{{project.website.label}}</a></dd>
               {% endif %}
               <dd>
             </dl>
