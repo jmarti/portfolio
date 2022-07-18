@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
+import { useThemeContext } from '../../theme.context';
 
 import {
   container,
   heroText,
   navLink
 } from './Layout.module.css'
-import { useThemeContext } from '../../theme.context';
+
 
 type Props = {
   pageTitle?: string;
