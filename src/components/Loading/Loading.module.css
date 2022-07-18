@@ -1,0 +1,66 @@
+
+.layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    background-color: #222;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+}
+
+.logo {
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+    height: 118px;
+    margin: 0 auto;
+    background: rgba(0,0,0,0);
+}
+
+.logoIcon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    
+    width: 200px;
+    height: 118px;
+        
+    fill: #222;
+}
+
+.logoFillContainer {
+    transform: translate(24px, -32px) rotate(18deg);
+}
+
+.logoFill {
+    width: 191px;
+    height: 186px;
+    background: #fff;
+    transition: transform .5s;
+}
+
+.logoFillAnimated {
+    width: 191px;
+    height: 186px;
+    background: #fff;
+    animation-name: fill;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fill {
+    0% {
+        transform: translate(-192px, 0);
+    }
+    25% {
+        transform: translate(-192px, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}

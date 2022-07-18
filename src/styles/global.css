@@ -1,0 +1,19 @@
+html {
+  background-color: #222;
+  font-family: "Source Sans Pro";
+  font-size: 32px;
+}
+body {
+  margin: 0;
+}
+a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+h1 {
+  font-family: "Roboto Slab";
+}
+main {
+  margin: 0;
+}

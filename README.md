@@ -1,60 +1,54 @@
-# My Portfolio readme
+<p align="center">
+  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
+    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  </a>
+</p>
+<h1 align="center">
+  Gatsby minimal TypeScript starter
+</h1>
 
-Generated on 2020-08-26 using
-[generator-yeogurt@3.1.2](https://github.com/larsonjj/generator-yeogurt)
+## 🚀 Quick start
 
-## Description
+1.  **Create a Gatsby site.**
 
-This is an example readme file.
-Describe your site/app here.
+    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
 
-## Technologies used
+    ```shell
+    # create a new Gatsby site using the minimal TypeScript starter
+    npm init gatsby
+    ```
 
-JavaScript
+2.  **Start developing.**
 
-- [Browserify](http://browserify.org/)with ES6/2015 support through [Babel](https://babeljs.io/)
-- [Node](https://nodejs.org/)
+    Navigate into your new site’s directory and start it up.
 
-Styles
+    ```shell
+    cd my-gatsby-site/
+    npm run develop
+    ```
 
-- [Sass](http://sass-lang.com/) via ([node-sass](https://github.com/sass/node-sass))
+3.  **Open the code and start customizing!**
 
-Markup
-- [Nunjucks](https://mozilla.github.io/nunjucks/)
+    Your site is now running at http://localhost:8000!
 
-Optimization
+    Edit `src/pages/index.tsx` to see your site update in real-time!
 
-- [Imagemin](https://github.com/imagemin/imagemin)
-- [Uglify](https://github.com/mishoo/UglifyJS)
+4.  **Learn more**
 
-Server
+    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
 
-- [BrowserSync](http://www.browsersync.io/)
+    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
 
-Linting
+    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
 
-- [ESlint](http://eslint.org/)
+    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
 
-Automation
+    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
 
-- [Gulp](http://gulpjs.com)
+    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
 
-Code Management
+## 🚀 Quick start (Gatsby Cloud)
 
-- [Editorconfig](http://editorconfig.org/)
-- [Git](https://git-scm.com/)
+Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
 
-## Automated tasks
-
-This project uses [Gulp](http://gulpjs.com) and npm scripts (i.e. `npm run...`) to run automated tasks for development and production builds.
-The tasks are as follows:
-
-`npm run build`: Build a production version of your site/app
-
-`npm run serve`: Compiles preprocessors and boots up development server
-`npm run serve -- --open`: Same as `npm run serve` but will also open up site/app in your default browser
-`npm run serve:prod`: Same as `npm run serve` but will run all production tasks so you can view the site/app in it's final optimized form
-
-`npm test`: Lints all `*.js` file in the `source` folder using eslint
-
-**_Adding the `-- --debug` option to any npm script command to display extra debugging information (ex. data being loaded into your templates)_**
+[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
