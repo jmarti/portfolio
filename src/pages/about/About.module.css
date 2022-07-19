@@ -1,6 +1,7 @@
 .h1 {
     color: #888;
     font-size: 3.25rem;
+    margin: 0
 }
 .article {
     margin: 0 auto;

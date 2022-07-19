@@ -2,16 +2,3 @@
   margin: auto;
   padding: 30px;
 }
-
-.heroText {
-  transition: opacity .3s;
-  font-size: 3.25rem;
-  line-height: 1.2;
-  color: #888;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-.navLink:hover {
-  text-shadow: 4px 4px 0 #222, 8px 8px 0 #888;
-}

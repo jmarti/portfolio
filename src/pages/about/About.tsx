@@ -12,8 +12,8 @@ import {
   description
 } from './About.module.css'
 
-const DEFAULT_BIO_LENGTH = 1
 
+const DEFAULT_BIO_LENGTH = 1
 
 const AboutPage = () => {
 

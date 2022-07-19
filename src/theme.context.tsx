@@ -37,5 +37,3 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
 }
 
 export const useThemeContext = () => useContext(ThemeContext)
-
-export default ({ element }: { element: ReactNode }) => <ThemeProvider>{element}</ThemeProvider>

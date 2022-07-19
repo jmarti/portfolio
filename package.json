@@ -1,8 +1,8 @@
 {
-  "name": "my-website",
+  "name": "portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "my-website",
+  "description": "portfolio",
   "author": "Jordi Martí",
   "keywords": [
     "gatsby"
@@ -20,6 +20,7 @@
     "@fontsource/source-sans-pro": "^4.5.10",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "framer-motion": "^6.5.1",
     "gatsby": "^4.18.2",
     "gatsby-plugin-image": "^2.18.1",
     "gatsby-plugin-mdx": "^3.18.1",
