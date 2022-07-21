@@ -1,0 +1,36 @@
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    margin: auto;
+    padding: 30px;
+}
+
+.page {
+    margin-top: 0;
+}
+
+.page.entering,
+.page.entered {
+    order: 3;
+}
+
+.page.exiting,
+.page.exited {
+    order: 2;
+    transition: margin-top 300ms cubic-bezier(.62,.28,.23,.99);
+}
+
+.page.homepage.entering,
+.page.homepage.entered {
+    transition: margin-top 300ms cubic-bezier(.62,.28,.23,.99);
+}
+
+.page.homepage.entering,
+.page.homepage.entered,
+.page.homepage.exiting,
+.page.homepage.exited {
+    order: 1
+}

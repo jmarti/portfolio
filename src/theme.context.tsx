@@ -5,17 +5,19 @@ type ThemeProviderProps = {
   children: ReactNode;
 }
 
-type themeContextValues = {
+type ThemeContextValues = {
   loading: Boolean,
   setLoading?: Function
 }
 
-export const ThemeContext = createContext({ loading: false } as themeContextValues)
+export const ThemeContext = createContext({ loading: true } as ThemeContextValues)
 
 export const ThemeProvider = (props: ThemeProviderProps) => {
   const { children } = props
 
-  const [loading, setLoading] = useState(true)
+  const { loading: loadingDefault } = useThemeContext()
+
+  const [loading, setLoading] = useState(loadingDefault)
 
   useEffect(() => {
     if (!loading) {
@@ -30,7 +32,6 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
       loading,
       setLoading
     }}>
-      {loading && <Loading />}
       {children}
     </ThemeContext.Provider>
   )

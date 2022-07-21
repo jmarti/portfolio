@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, PageProps, useStaticQuery } from 'gatsby'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
-import Layout from '../../components/Layout'
+import LayoutPage from '../../layouts/LayoutPage'
+
 import {
   h1,
   article,
@@ -15,8 +16,7 @@ import {
 
 const DEFAULT_BIO_LENGTH = 1
 
-const AboutPage = () => {
-
+const AboutPage = (props: PageProps) => {
   const allBios: Queries.AllBiosQuery = useStaticQuery(graphql`
     query AllBios {
       allMdx(filter: {fileAbsolutePath: {regex: "/content/about/"}}) {
@@ -35,7 +35,6 @@ const AboutPage = () => {
       }
     }
   `)
-
   const [activeLength, setActiveLength] = useState(0)
 
   useEffect(() => {
@@ -45,7 +44,7 @@ const AboutPage = () => {
   }, [])
 
   return (
-    <Layout pageTitle="About Me">
+    <LayoutPage pageTitle="About" pageProps={props}>
       <h1 className={h1}>That's me</h1>
       <article className={article}>
         <div className={container}>
@@ -65,7 +64,7 @@ const AboutPage = () => {
         </div>
       </article>
       {allBios.allMdx.nodes[activeLength]?.frontmatter?.title}
-    </Layout>
+    </LayoutPage>
   )
 }
 
