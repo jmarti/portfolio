@@ -1,0 +1,13 @@
+.page {
+  position: relative;
+}
+.arrowLink {
+  position: absolute;
+  top: -2rem;
+  right: -3rem;
+  transition: all 300ms cubic-bezier(.62,.28,.23,.99);
+}
+.arrowLink:hover {
+  transform: translateY(-1rem);
+  padding-bottom: 1rem;
+}

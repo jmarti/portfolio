@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useStaticQuery, graphql, PageProps } from 'gatsby'
 import { Transition, TransitionGroup } from 'react-transition-group';
 
-import './LayoutMain.module.css';
 import {
   container,
   homepage,
@@ -62,7 +61,7 @@ const LayoutMain = ({ children, location, uri }: PageProps) => {
   return (
     <>
       <title>{pageTitle && `${pageTitle} | ` }{data.site.siteMetadata.title}</title>
-      {loading && <Loading />}
+      {/* {loading && <Loading />} */}
       <div className={content}>
         <TransitionGroup component={null}>
           <Transition

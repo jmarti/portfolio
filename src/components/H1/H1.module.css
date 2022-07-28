@@ -1,0 +1,11 @@
+.h1 {
+  position: absolute;
+  font-size: 12.5rem;
+  top: -3rem;
+  left: -5rem;
+  pointer-events: none;
+  color: #444;
+  line-height: 1.4;
+  margin: 0;
+  z-index: -1;
+}

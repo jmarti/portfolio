@@ -5,20 +5,22 @@ import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import LayoutPage from '../../layouts/LayoutPage'
 
 import {
-  h1,
+  activeItem,
   article,
+  card,
   container,
-  left,
-  right,
   description,
+  image,
+  left,
   lengthSelector,
-  activeItem
+  right,
 } from './About.module.css'
 import DynamicText from '../../components/DynamicText'
+import H1 from '../../components/H1'
+import Card from '../../components/Card'
 
 
-const DEFAULT_BIO_LENGTH = 1
-const BIO_LENGTH_TEXT_EMS = [1.5, 1.2, .9, .75]
+const DEFAULT_BIO_LENGTH = 0
 
 const AboutPage = (props: PageProps) => {
   const allBios: Queries.AllBiosQuery = useStaticQuery(graphql`
@@ -37,6 +39,7 @@ const AboutPage = (props: PageProps) => {
                 gatsbyImageData
               }
             }
+            image_alt
           }
           body
         }
@@ -57,38 +60,41 @@ const AboutPage = (props: PageProps) => {
 
   return (
     <LayoutPage pageTitle="About" pageProps={props}>
-      <h1 className={h1}>That's me</h1>
+      <H1>That's me.</H1>
       <article className={article}>
         <div className={container}>
           {allBios.allMdx.nodes[activeLength]?.frontmatter?.image?.childImageSharp?.gatsbyImageData && (
             <>
               <div className={left}>
-                <GatsbyImage
-                  alt=""
-                  image={allBios.allMdx.nodes[activeLength]?.frontmatter?.image?.childImageSharp?.gatsbyImageData as IGatsbyImageData}
-                  />
+                  <GatsbyImage
+                    alt={allBios.allMdx.nodes[activeLength]?.frontmatter?.image_alt || ''}
+                    image={allBios.allMdx.nodes[activeLength]?.frontmatter?.image?.childImageSharp?.gatsbyImageData as IGatsbyImageData}
+                    className={image}
+                  />                
               </div>
               <div className={right}>
-                <div className={description}>
-                  <DynamicText height={360}>
-                    {allBios.allMdx.nodes[activeLength]?.frontmatter?.description}
-                  </DynamicText>
-                </div>
-                <ul className={lengthSelector}>
-                  {allBios.allMdx.nodes.map((node, i, arr) => (
-                    <li
-                      key={i}
-                      className={activeLength === i ? activeItem : undefined}
-                      data-helpText={i === 0 ? 'Less' : i === arr.length - 1 ? 'More' : undefined}
-                    >
-                      <button onClick={() => handleLengthSelection(i)}>
-                        <span className="srOnly">
-                          {node.frontmatter?.title} {activeLength === i && '(active)'}
-                        </span>
-                      </button>
-                    </li>
-                  ))}
-                </ul>
+                <Card className={card}>
+                  <div className={description}>
+                    <DynamicText height={350}>
+                      {allBios.allMdx.nodes[activeLength]?.frontmatter?.description}
+                    </DynamicText>
+                  </div>
+                  <ul className={lengthSelector}>
+                    {allBios.allMdx.nodes.map((node, i, arr) => (
+                      <li
+                        key={i}
+                        className={activeLength === i ? activeItem : undefined}
+                        data-helpText={i === 0 ? 'Less' : i === arr.length - 1 ? 'More' : undefined}
+                      >
+                        <button onClick={() => handleLengthSelection(i)}>
+                          <span className="srOnly">
+                            {node.frontmatter?.title} {activeLength === i && '(active)'}
+                          </span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
               </div>
             </>
           )}

@@ -45,7 +45,7 @@ const DynamicText = (props: Props) => {
         height: `${height}px`,
         opacity: ready ? 1 : 0
       }}>
-      <p ref={element}>
+      <p ref={element} style={{ margin: 0 }}>
         {children}
       </p>
     </div>

@@ -2,10 +2,10 @@ const sharp = require(`sharp`)
 const glob = require(`glob`)
 const fs = require(`fs-extra`)
 
-const matches = glob.sync('blog/**/*.{png,jpg,jpeg}', {
-  ignore: ['blog/**/*-optimized.*']
+const matches = glob.sync('content/**/*.{png,jpg,jpeg}', {
+  ignore: ['content/**/*-optimized.*']
 })
-const MAX_WIDTH = 1800
+const MAX_WIDTH = 1000
 const QUALITY = 70
 
 

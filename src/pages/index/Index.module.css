@@ -4,10 +4,11 @@
 }
 
 .heroText {
+  font-family: "Roboto Slab";
   transition: opacity .3s;
-  font-size: 3.25rem;
-  line-height: 1.2;
-  color: #888;
+  font-size: 3.5rem;
+  line-height: 1.15;
+  color: #aaa;
   margin: 0;
   text-transform: uppercase;
 }
