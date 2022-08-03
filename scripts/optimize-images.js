@@ -5,7 +5,7 @@ const fs = require(`fs-extra`)
 const matches = glob.sync('content/**/*.{png,jpg,jpeg}', {
   ignore: ['content/**/*-optimized.*']
 })
-const MAX_WIDTH = 1000
+const MAX_WIDTH = 800
 const QUALITY = 70
 
 

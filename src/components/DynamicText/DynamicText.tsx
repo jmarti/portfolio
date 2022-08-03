@@ -1,8 +1,24 @@
 import React, { ReactNode, useEffect, useRef, useState } from "react"
+import useWindowSize from "../../hooks/useWindowSize"
 
 type Props = {
   children: ReactNode
   height: number
+}
+
+function setFontSize(element: HTMLParagraphElement, parent: HTMLDivElement) {
+  let currentFontSize = 12
+    let overflow = false
+    element.style.fontSize = `${currentFontSize}px`
+
+    while (!overflow && currentFontSize < 100) {
+      element.style.fontSize = `${currentFontSize}px`
+      overflow = parent.clientHeight < element.clientHeight
+      if (!overflow) {
+        currentFontSize = currentFontSize + 1
+      }
+    }
+    element.style.fontSize = `${currentFontSize - 1}px`
 }
 
 const DynamicText = (props: Props) => {
@@ -10,42 +26,48 @@ const DynamicText = (props: Props) => {
 
   const [ready, setReady] = useState(false)
   const [children, setChildren] = useState(childrenProp)
+  const windowSize = useWindowSize()
   
-  const parent = useRef<any>()
-  const element = useRef<any>()
+  const parentRef = useRef<HTMLDivElement>(null)
+  const elementRef = useRef<HTMLParagraphElement>(null)
 
   useEffect(() => {
     setReady(false)
 
     setTimeout(() => {
       setChildren(childrenProp)
-      if (!parent.current || !element.current) {
+      if (!parentRef.current || !elementRef.current) {
         return
       }
-      let currentFontSize = 12
-      let overflow = false
-      element.current.style.fontSize = currentFontSize
 
-      while (!overflow && currentFontSize < 100) {
-        element.current.style.fontSize = `${currentFontSize}px`
-        overflow = parent.current.clientHeight < element.current.clientHeight
-        if (!overflow) {
-          currentFontSize = currentFontSize + 1
-        }
-      }
-      element.current.style.fontSize = `${currentFontSize - 1}px`
+      setFontSize(elementRef.current, parentRef.current)  
       setReady(true)
     })
-  }, [childrenProp, height, parent, element])
+  }, [childrenProp, height, parentRef, elementRef])
+
+  useEffect(() => {
+    if (!windowSize.width || !windowSize.height) {
+      return
+    }
+
+    setReady(false)
+    setTimeout(() => {
+      if (!parentRef.current || !elementRef.current) {
+        return
+      }
+      setFontSize(elementRef.current, parentRef.current)
+      setReady(true)
+    })
+  }, [windowSize])
 
   return (
     <div
-      ref={parent}
+      ref={parentRef}
       style={{
         height: `${height}px`,
         opacity: ready ? 1 : 0
       }}>
-      <p ref={element} style={{ margin: 0 }}>
+      <p ref={elementRef} style={{ margin: 0 }}>
         {children}
       </p>
     </div>

@@ -4,28 +4,27 @@
 }
 .article {
   margin: 0 auto;
-  padding-top: 6rem;
+  padding-top: 2.5rem;
   max-width: 33.75rem;
 }
 .left {
-  position: relative;
-  left: 1.025em;
-  width: 50%;
+  width: 12.5rem;
 }
 .right {
+  flex: 1;
   position: relative;
-  right: 1.025rem;
-  width: 50%;
+  right: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .card {
-  margin-top: 1.75rem;
+  margin-top: 1.25rem;
 }
 .image {
   mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxMCAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMTBWMEgxMFYxSDlWMTBIMFoiIGZpbGw9ImJsYWNrIi8+Cjwvc3ZnPgo=');
   mask-size: 100%;
+  max-width: 12.5rem;
 }
 .description {
   color: #f0f0f0;
@@ -51,7 +50,7 @@
   background-color: #888;
 }
 .lengthSelector > li:not(:first-child)::before {
-  right: calc(50% + .8725rem);  
+  right: calc(50% + .7rem);  
 }
 .lengthSelector > li:first-child::after,
 .lengthSelector > li:last-child::after {
@@ -65,13 +64,13 @@
   text-align: center;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: .75rem;
 }
 .lengthSelector > li > button {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   background-color: #222;
-  border: .3125rem solid #888;
+  border: .25rem solid #888;
   border-radius: 50%;
   transition: all .2s;
 }

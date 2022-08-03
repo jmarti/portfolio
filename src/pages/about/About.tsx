@@ -16,7 +16,7 @@ import {
   right,
 } from './About.module.css'
 import DynamicText from '../../components/DynamicText'
-import H1 from '../../components/H1'
+import PageTitle from '../../components/PageTitle'
 import Card from '../../components/Card'
 
 
@@ -60,7 +60,7 @@ const AboutPage = (props: PageProps) => {
 
   return (
     <LayoutPage pageTitle="About" pageProps={props}>
-      <H1>That's me.</H1>
+      <PageTitle>That's me.</PageTitle>
       <article className={article}>
         <div className={container}>
           {allBios.allMdx.nodes[activeLength]?.frontmatter?.image?.childImageSharp?.gatsbyImageData && (
@@ -75,7 +75,7 @@ const AboutPage = (props: PageProps) => {
               <div className={right}>
                 <Card className={card}>
                   <div className={description}>
-                    <DynamicText height={350}>
+                    <DynamicText height={300}>
                       {allBios.allMdx.nodes[activeLength]?.frontmatter?.description}
                     </DynamicText>
                   </div>

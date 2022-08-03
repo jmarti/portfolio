@@ -3,11 +3,6 @@
   flex-direction: column;
 }
 
-.container {
-  margin: auto;
-  padding: 30px;
-}
-
 .page {
   margin-top: 0;
 }

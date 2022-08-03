@@ -2,7 +2,7 @@ import { PageProps } from 'gatsby';
 import React, { useEffect } from 'react'
 import ArrowLink from '../../components/ArrowLink';
 import { useLayoutMainContext } from '../LayoutMain/LayoutMain.context';
-import { arrowLink, page } from './LayoutPage.module.css';
+import { arrowLink, container, page } from './LayoutPage.module.css';
 
 type Props = {
   pageTitle?: string;
@@ -22,7 +22,9 @@ const LayoutPage = ({ pageTitle, children, pageProps }: Props) => {
     <>
       <div data-uri={pageProps.uri} className={page}>
         {pageProps.uri !== '/' && <ArrowLink className={arrowLink} />}
-        {children}
+        <div className={container}>
+          {children}
+        </div>
       </div>
     </>
   )

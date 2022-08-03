@@ -3,7 +3,6 @@ import { useStaticQuery, graphql, PageProps } from 'gatsby'
 import { Transition, TransitionGroup } from 'react-transition-group';
 
 import {
-  container,
   homepage,
   page,
   entered,
@@ -72,9 +71,7 @@ const LayoutMain = ({ children, location, uri }: PageProps) => {
           >
             {state => (
               <main className={`${navigationToHomepage && !['exiting', 'exited'].includes(state) && homepage } ${page} ${stateClases[state]}`}>
-                <div className={container}>
-                  {children}
-                </div>
+                {children}
               </main>
             )}
           </Transition>
