@@ -1,9 +1,29 @@
 .card {
-  position: relative;
-  padding: 1.25rem 1.5rem;
+  display: flex;
 }
 
-.card::before {
+.cardMedia {
+  width: 12.5rem;
+}
+
+.cardImage {
+  mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxMCAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMTBWMEgxMFYxSDlWMTBIMFoiIGZpbGw9ImJsYWNrIi8+Cjwvc3ZnPgo=');
+  mask-size: 100%;
+  max-width: 12.5rem;
+}
+
+.cardContent {
+  margin-top: 1.25rem;
+  position: relative;
+  padding: 1.25rem 1.5rem;
+  flex: 1;
+  position: relative;
+  right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cardContent::before {
   content: '';
   position: absolute;
   top: 0;
@@ -12,8 +32,7 @@
   width: .625rem;
   background-color: #888;
 }
-
-.card::after {
+.cardContent::after {
   content: '';
   position: absolute;
   top: 0;

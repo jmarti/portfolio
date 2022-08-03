@@ -1,20 +1,47 @@
 import React, { ReactNode } from 'react'
-import classNames from 'classnames'
-import { card } from './Card.module.css'
+import { card, cardContent, cardImage, cardMedia } from './Card.module.css'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
-type Props = {
-  className: string
+type CardProps = {
   children: ReactNode
 }
-
-const Card = (props: Props) => {
-  const { children, className } = props
+export const Card = (props: CardProps) => {
+  const { children } = props
 
   return (
-    <article className={classNames(card, className)}>
+    <article className={card}>
       {children}
     </article>
   )
 }
 
-export default Card
+type CardMediaProps = {
+  alt: string
+  image: IGatsbyImageData
+}
+export const CardMedia = (props: CardMediaProps) => {
+  const { image, alt } = props
+
+  return (
+    <div className={cardMedia}>
+      <GatsbyImage
+        alt={alt}
+        image={image}
+        className={cardImage}
+      />                
+    </div>
+  )
+}
+
+type CardContentProps = {
+  children: ReactNode
+}
+export const CardContent = (props: CardContentProps) => {
+  const { children } = props
+
+  return (
+    <div className={cardContent}>
+      {children}
+    </div>
+  )
+}

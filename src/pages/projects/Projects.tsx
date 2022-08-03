@@ -3,9 +3,10 @@ import { graphql, PageProps, useStaticQuery } from 'gatsby'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
 import LayoutPage from '../../layouts/LayoutPage'
+import PageTitle from '../../components/PageTitle'
 
 import {
-  h1,
+  container,
   article
 } from './Projects.module.css'
 
@@ -35,10 +36,10 @@ const ProjectsPage = (props: PageProps) => {
   `)
 
   return (
-    <LayoutPage pageTitle="About" pageProps={props}>
-      <h1 className={h1}>Some stuff I built.</h1>
+    <LayoutPage pageTitle="Projects" pageProps={props}>
+      <PageTitle>Some stuff I buit.</PageTitle>
       <article className={article}>
-        
+        <div className={container}></div>
       </article>
     </LayoutPage>
   )
