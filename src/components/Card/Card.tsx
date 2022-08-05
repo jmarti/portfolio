@@ -1,15 +1,32 @@
 import React, { ReactNode } from 'react'
-import { card, cardContent, cardImage, cardMedia } from './Card.module.css'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import {
+  card,
+  variantNormal,
+  variantInverted,
+  cardContent,
+  cardImage,
+  cardMedia,
+  cardTitle
+} from './Card.module.css'
+import classNames from 'classnames'
+
+const variantClasses = {
+  inverted: variantInverted
+}
 
 type CardProps = {
   children: ReactNode
+  variant?: 'inverted'
 }
 export const Card = (props: CardProps) => {
-  const { children } = props
+  const { children, variant } = props
 
   return (
-    <article className={card}>
+    <article className={classNames(
+      card, 
+      variant ? variantClasses[variant] : variantNormal
+    )}>
       {children}
     </article>
   )
@@ -18,17 +35,29 @@ export const Card = (props: CardProps) => {
 type CardMediaProps = {
   alt: string
   image: IGatsbyImageData
+  href?: string,
+  title?: string
 }
 export const CardMedia = (props: CardMediaProps) => {
-  const { image, alt } = props
+  const { alt, href, title, image } = props
+
+  const Image = () => (
+    <GatsbyImage
+      alt={alt}
+      image={image}
+      className={cardImage}
+    />
+  )
 
   return (
     <div className={cardMedia}>
-      <GatsbyImage
-        alt={alt}
-        image={image}
-        className={cardImage}
-      />                
+      {href ? (
+        <a href={href} title={title} target="_blank">
+          <Image />
+        </a>
+      ) : (
+        <Image />
+      )}
     </div>
   )
 }
@@ -43,5 +72,18 @@ export const CardContent = (props: CardContentProps) => {
     <div className={cardContent}>
       {children}
     </div>
+  )
+}
+
+type CardTitleProps = {
+  children: ReactNode
+}
+export const CardTitle = (props: CardTitleProps) => {
+  const { children } = props
+
+  return (
+    <h2 className={cardTitle}>
+      {children}
+    </h2>
   )
 }

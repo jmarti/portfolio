@@ -1,8 +1,4 @@
-.container {
-  display: flex;
-  margin: 0 -.75rem;
-}
-.article {
+.section {
   margin: 0 auto;
   max-width: 1000px;
 }

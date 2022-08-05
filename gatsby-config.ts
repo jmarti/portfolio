@@ -19,6 +19,13 @@ const config: GatsbyConfig = {
         path: `${__dirname}/content/about`,
       }
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "projects",
+        path: `${__dirname}/content/projects`,
+      }
+    },
     "gatsby-plugin-mdx",
     "gatsby-transformer-sharp",
     `gatsby-plugin-layout`,
