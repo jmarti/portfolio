@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, PageProps, useStaticQuery } from 'gatsby'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 
-import { section } from './Projects.module.css'
+import { section, project as projectClass } from './Projects.module.css'
 import LayoutPage from '../../layouts/LayoutPage'
 import PageTitle from '../../components/PageTitle'
 import { Card, CardContent, CardMedia, CardTitle } from '../../components/Card'
@@ -41,6 +41,7 @@ const ProjectsPage = (props: PageProps) => {
           <Card
             key={i}
             variant={i % 2 ? 'inverted' : undefined}
+            className={projectClass}
           >
             <CardMedia
               href={project.frontmatter?.url ? `//${project.frontmatter.url}` : undefined}
