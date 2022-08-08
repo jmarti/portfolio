@@ -15,12 +15,12 @@
 .page.exiting,
 .page.exited {
   order: 2;
-  transition: margin-top 300ms cubic-bezier(.62,.28,.23,.99);
+  transition: margin-top 200ms cubic-bezier(.62,.28,.23,.99);
 }
 
 .page.homepage.entering,
 .page.homepage.entered {
-  transition: margin-top 300ms cubic-bezier(.62,.28,.23,.99);
+  transition: margin-top 200ms cubic-bezier(.62,.28,.23,.99);
 }
 
 .page.homepage.entering,

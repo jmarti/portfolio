@@ -43,8 +43,12 @@ const LayoutMain = ({ children, location, uri }: PageProps) => {
 
   const handleEntering = (node: HTMLElement) => {
     const homepage = isHomepage(node)
+
+    if (window.outerHeight < document.body.clientHeight && window.outerHeight > node.clientHeight) {
+      document.body.style.overflow = 'hidden'
+    }
+
     setNavigationToHomepage(homepage)
-    
     if (homepage) {
       node.style.marginTop = `${-node.clientHeight}px`
       setTimeout(() => {
@@ -55,6 +59,10 @@ const LayoutMain = ({ children, location, uri }: PageProps) => {
 
   const handleExiting = (node: HTMLElement) => {
     node.style.marginTop = navigationToHomepage ? `${-node.clientHeight}px` : `${node.clientHeight}px`
+  }
+
+  const handleExited = () => {
+    document.body.style.overflow = 'auto'
   }
 
   return (
@@ -68,6 +76,7 @@ const LayoutMain = ({ children, location, uri }: PageProps) => {
             timeout={{ enter: 300, exit: 300 }}
             onEntering={handleEntering}
             onExiting={handleExiting}
+            onExited={handleExited}
           >
             {state => (
               <main className={`${navigationToHomepage && !['exiting', 'exited'].includes(state) && homepage } ${page} ${stateClases[state]}`}>

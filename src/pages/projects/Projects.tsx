@@ -9,7 +9,7 @@ import { Card, CardContent, CardMedia, CardTitle } from '../../components/Card'
 
 
 const ProjectsPage = (props: PageProps) => {
-  const allProjects: Queries.AllBiosQuery = useStaticQuery(graphql`
+  const allProjects: Queries.AllProjectsQuery = useStaticQuery(graphql`
     query AllProjects {
       allMdx(
         filter: {fileAbsolutePath: {regex: "/content/projects/"}}
@@ -45,7 +45,7 @@ const ProjectsPage = (props: PageProps) => {
             <CardMedia
               href={project.frontmatter?.url ? `//${project.frontmatter.url}` : undefined}
               title={`See ${project.frontmatter?.title} project.`}
-              alt={project.frontmatter?.image_alt || ''}
+              alt={project.frontmatter?.title || ''}
               image={project.frontmatter?.image?.childImageSharp?.gatsbyImageData as IGatsbyImageData}
             />
             <CardContent>
