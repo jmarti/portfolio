@@ -22,8 +22,15 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "projects",
-        path: `${__dirname}/content/projects`,
+        name: "featuredProjects",
+        path: `${__dirname}/content/featuredProjects`,
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "otherProjects",
+        path: `${__dirname}/content/otherProjects`,
       }
     },
     "gatsby-plugin-mdx",

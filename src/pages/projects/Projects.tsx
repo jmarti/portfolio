@@ -9,10 +9,10 @@ import { Card, CardContent, CardMedia, CardTitle } from '../../components/Card'
 
 
 const ProjectsPage = (props: PageProps) => {
-  const allProjects: Queries.AllProjectsQuery = useStaticQuery(graphql`
-    query AllProjects {
+  const allFeaturedProjects: Queries.AllFeaturedProjectsQuery = useStaticQuery(graphql`
+    query AllFeaturedProjects {
       allMdx(
-        filter: {fileAbsolutePath: {regex: "/content/projects/"}}
+        filter: {fileAbsolutePath: {regex: "/content/featuredProjects/"}}
         sort: {fields: slug}
       ) {
         nodes {
@@ -37,14 +37,14 @@ const ProjectsPage = (props: PageProps) => {
     <LayoutPage pageTitle="Projects" pageProps={props}>
       <PageTitle>Some stuff I buit.</PageTitle>
       <section className={section}>
-        {allProjects.allMdx.nodes.length && allProjects.allMdx.nodes.map((project, i) => (
+        {allFeaturedProjects.allMdx.nodes.length && allFeaturedProjects.allMdx.nodes.map((project, i) => (
           <Card
             key={i}
             variant={i % 2 ? 'inverted' : undefined}
             className={projectClass}
           >
             <CardMedia
-              href={project.frontmatter?.url ? `//${project.frontmatter.url}` : undefined}
+              href={project.frontmatter?.url ? project.frontmatter.url : undefined}
               title={`See ${project.frontmatter?.title} project.`}
               alt={project.frontmatter?.title || ''}
               image={project.frontmatter?.image?.childImageSharp?.gatsbyImageData as IGatsbyImageData}
@@ -52,12 +52,6 @@ const ProjectsPage = (props: PageProps) => {
             <CardContent>
               <CardTitle>
                 {project.frontmatter?.title}
-                {project.frontmatter?.url && (
-                  <> // <a title={`See ${project.frontmatter?.title} project.`} target="_blank" href={`//${project.frontmatter.url}`}>
-                    {project.frontmatter.url}
-                  </a>
-                  </>
-                )}
               </CardTitle>
               <p>{project.frontmatter?.description}</p>
             </CardContent>
